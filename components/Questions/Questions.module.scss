@@ -1,0 +1,40 @@
+.questions {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid grey;
+  h2 {
+    font-size: 20px;
+  }
+  .table {
+    border-collapse: collapse;
+    width: 100%;
+    .table-header {
+      width: 100%;
+      th {
+        text-align: start;
+        padding-bottom: 20px;
+      }
+    }
+    .question {
+      transition: all 0.3s ease;
+      width: 100%;
+      border-top: 1px solid grey;
+      cursor: pointer;
+      .title {
+        padding-right: 10px;
+      }
+      .author {
+        padding-right: 10px;
+        font-weight: 600;
+      }
+      td {
+        padding: 5px 0;
+      }
+    }
+    .question:hover {
+      color: blue;
+    }
+  }
+}

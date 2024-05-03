@@ -1,0 +1,21 @@
+.sort {
+  border-radius: 10px;
+  border: 1px solid grey;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  h2 {
+    font-size: 20px;
+  }
+  select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid grey;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  .select:focus {
+    outline: none;
+    border: 1px solid blue;
+  }
+}

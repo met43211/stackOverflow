@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  .logo {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+    white-space: nowrap;
+    h1 {
+      font-size: 25px;
+    }
+  }
+}
