@@ -25,9 +25,9 @@ function Question({ id }: { id: number }) {
         Репутатция - {question?.owner.reputation}
       </p>
       <div className={styles["tags"]}>
-        {question?.tags.map((tag: string, index) => (
-          <div className={styles["tag"]}>
-            <Tag tag={tag} key={index}></Tag>
+        {question?.tags.map((tag: string, index: number) => (
+          <div className={styles["tag"]} key={index}>
+            <Tag tag={tag}></Tag>
           </div>
         ))}
       </div>

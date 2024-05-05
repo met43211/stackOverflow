@@ -17,7 +17,7 @@ function Pagination() {
 
   useEffect(() => {
     setPage(Number(pageFromQuery));
-  }, [pageFromQuery]);
+  }, [pageFromQuery, setPage]);
 
   const createQueryString = useCallback(
     (name: string, value: string) => {

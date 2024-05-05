@@ -20,10 +20,19 @@ function Search() {
 
   const { setSearchResults } = useSearchStore((state) => state);
 
-  if (!sort || !intitle || !page) {
-    router.push(`/`);
-    return null;
-  }
+  useEffect(() => {
+    if (!sort || !intitle || !page) {
+      router.push(`/`);
+      return;
+    }
+
+    const fetchData = async () => {
+      const result = await fetchSearch({ intitle, sort, page });
+      setSearchResults(result);
+    };
+
+    fetchData();
+  }, [intitle, sort, page, router, setSearchResults]);
 
   const {
     data: questions,
@@ -33,19 +42,13 @@ function Search() {
   } = useQuery({
     queryKey: ["questions", intitle, sort, page],
     queryFn: async () => {
-      return fetchSearch({ intitle, sort, page });
+      if (sort && intitle && page) return fetchSearch({ intitle, sort, page });
     },
   });
 
   useEffect(() => {
     refetch();
-  }, [intitle, sort, page]);
-
-  useEffect(() => {
-    if (questions) {
-      setSearchResults(questions);
-    }
-  }, [questions]);
+  }, [intitle, sort, page, refetch]);
 
   if (isLoading) {
     return <LoadingUI />;
