@@ -2,16 +2,22 @@
 
 import Button from "@/UI/Button.tsx/Button";
 import styles from "./Pagination.module.scss";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useSearchStore } from "@/store/searchStore";
+import { usePaginationStore } from "@/store/paginationStore";
 
 function Pagination() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [page, setPage] = useState(Number(searchParams.get("page")));
+  const pageFromQuery = searchParams.get("page");
+  const { page, setPage } = usePaginationStore((state) => state);
   const { searchResults } = useSearchStore((state) => state);
+
+  useEffect(() => {
+    setPage(Number(pageFromQuery));
+  }, [pageFromQuery]);
 
   const createQueryString = useCallback(
     (name: string, value: string) => {
@@ -25,13 +31,11 @@ function Pagination() {
 
   const handleNext = () => {
     if (searchResults.length) {
-      setPage((prev) => prev + 1);
       router.push(pathname + "?" + createQueryString("page", String(page + 1)));
     }
   };
   const handlePrev = () => {
     if (page > 1) {
-      setPage((prev) => prev - 1);
       router.push(pathname + "?" + createQueryString("page", String(page - 1)));
     }
   };
