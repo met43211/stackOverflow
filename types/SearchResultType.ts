@@ -1,3 +1,5 @@
+import { Owner } from "./OwnerType";
+
 export interface GetedSearchResults {
   items: SearchResultType[];
 }
@@ -15,14 +17,4 @@ export interface SearchResultType {
   content_license: string;
   link: string;
   title: string;
-}
-
-export interface Owner {
-  account_id: number;
-  reputation: number;
-  user_id: number;
-  user_type: string;
-  profile_image: string;
-  display_name: string;
-  link: string;
 }

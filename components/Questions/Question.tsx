@@ -21,7 +21,9 @@ function Question({
   return (
     <tr className={styles["question"]} onClick={handleQuestionClick}>
       <td className={styles["author"]}>{owner.display_name}</td>
-      <td className={styles["title"]}>{title}</td>
+      <td className={styles["title"]}>
+        <div dangerouslySetInnerHTML={{ __html: title }} />
+      </td>
       <td className={styles["answers"]}>{answer_count}</td>
       <td className={styles["tags"]}>
         {tags.map((tag: string, index) => (

@@ -1,7 +1,7 @@
 import CircularProgress from "@mui/material/CircularProgress";
-import styles from "./Loading.module.scss";
+import styles from "./Loader.module.scss";
 
-function LoadingUI() {
+function Loader() {
   return (
     <div className={styles["loading"]}>
       <CircularProgress />
@@ -9,4 +9,4 @@ function LoadingUI() {
   );
 }
 
-export default LoadingUI;
+export default Loader;

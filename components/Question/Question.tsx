@@ -18,12 +18,9 @@ function Question({ id }: { id: number }) {
   }
   return (
     <div className={styles["question"]}>
-      <Link href={question ? question.owner.link : ""}>
+      <Link href={question && question.owner.link ? question.owner.link : ""}>
         <h1>Автор - {question?.owner.display_name}</h1>
       </Link>
-      <p className={styles["reputation"]}>
-        Репутатция - {question?.owner.reputation}
-      </p>
       <div className={styles["tags"]}>
         {question?.tags.map((tag: string, index: number) => (
           <div className={styles["tag"]} key={index}>
@@ -31,13 +28,18 @@ function Question({ id }: { id: number }) {
           </div>
         ))}
       </div>
-      <h2>
-        Вопрос:
-        <br />
-        {question?.title}
-      </h2>
-      <p className={styles["view"]}>Просмотры - {question?.view_count}</p>
-      <p className={styles["answers"]}>Ответы - {question?.answer_count}</p>
+      {question && (
+        <>
+          <h3>Тема:</h3>
+          <div dangerouslySetInnerHTML={{ __html: question.title }} />
+        </>
+      )}
+      {question && (
+        <>
+          <h3>Вопрос:</h3>
+          <div dangerouslySetInnerHTML={{ __html: question.body }} />
+        </>
+      )}
     </div>
   );
 }

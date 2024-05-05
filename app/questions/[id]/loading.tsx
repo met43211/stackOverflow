@@ -1,7 +1,7 @@
-import LoadingUI from "@/UI/LoadingUI/LoadingUI";
+import Loader from "@/UI/Loader/Loader";
 
 function Loading() {
-  return <LoadingUI />;
+  return <Loader />;
 }
 
 export default Loading;

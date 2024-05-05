@@ -13,7 +13,7 @@ function Questions() {
           <thead>
             <tr className={styles["table-header"]}>
               <th className={styles["author"]}>Автор</th>
-              <th className={styles["title"]}>Вопрос</th>
+              <th className={styles["title"]}>Тема</th>
               <th className={styles["answers"]}>Кол-во ответов</th>
               <th className={styles["tags"]}>Теги</th>
             </tr>

@@ -8,7 +8,7 @@ import { useSearchStore } from "@/store/searchStore";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
-import LoadingUI from "@/UI/LoadingUI/LoadingUI";
+import LoadingUI from "@/UI/Loader/Loader";
 import Pagination from "@/components/Pagination/Pagination";
 
 function Search() {

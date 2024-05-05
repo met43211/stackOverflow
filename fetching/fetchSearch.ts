@@ -12,6 +12,7 @@ export const fetchSearch = async ({ intitle, sort, page }: ParamsI) => {
     order: "desc",
     sort,
     intitle,
+    scope: "private_info",
     site: "stackoverflow",
     access_token: process.env.NEXT_PUBLIC_TOKEN,
     key: process.env.NEXT_PUBLIC_KEY,
